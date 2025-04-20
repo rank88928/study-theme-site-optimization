@@ -1,0 +1,286 @@
+//主體容器-JS附加按鈕、顯示點於容器內
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+
+  -webkit-user-select: none; //禁止選擇文本
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-touch-callout: none; //禁止長按顯示選項
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent; //點擊時取消默認高亮顏色
+}
+
+//列表容器-內容可視區
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-list:focus {
+  outline: none; //獲取焦點時取消預設外框
+}
+
+.slick-list.dragging {
+  cursor: pointer; //拖拽時顯示手型光標
+  cursor: hand; //兼容IE
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0); //使用3D轉換提高性能
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+//容器-項目移動區域
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slick-track:before,
+.slick-track:after {
+  display: table;
+  content: "";
+}
+
+.slick-track:after {
+  clear: both; //清除浮動
+}
+
+.slick-loading .slick-track {
+  visibility: hidden; //隱藏
+}
+
+.slick-slide {
+  display: none; //隱藏
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+[dir="rtl"] .slick-slide {
+  float: right; //右浮動
+}
+
+.slick-slide img {
+  display: block;
+}
+
+.slick-slide.slick-loading img {
+  display: none; //隱藏
+}
+
+.slick-slide.dragging img {
+  pointer-events: none; //禁用鼠標事件
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden; //隱藏
+}
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  // border: 1px solid transparent; 容器大小計算會錯誤
+}
+
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+// @charset 'UTF-8'; //設置文件字符集為 UTF-8
+
+//載入時顯示 AJAX loader 圖示
+// .slick-loading .slick-list {
+//     background: #fff url('./ajax-loader.gif') center center no-repeat;
+// }
+
+//Icons 字體設定
+@font-face {
+  font-family: "slick"; //定義字體家族為 slick
+  font-weight: normal;
+  font-style: normal;
+  // src: url("/slick/fonts/slick.eot"); //字體路徑
+  // src: url("/slick/fonts/slick.eot?#iefix") format("embedded-opentype"),
+  //   //兼容 IE
+  //   url("/slick/fonts/slick.woff") format("woff"),
+  //   //兼容現代瀏覽器
+  //   url("/slick/fonts/slick.ttf") format("truetype"),
+  //   //兼容 Safari, Android, iOS
+  //   url("/slick/fonts/slick.svg#slick") format("svg"); //兼容老版本 iOS
+}
+
+/* 箭頭樣式-共通 */
+// .slick-prev,
+// .slick-next {
+//     font-size: 0; /* 隱藏箭頭文字內容 */
+//     line-height: 0;
+//     position: absolute;
+//     top: 50%; /* 垂直置中 */
+//     display: block;
+//     width: 20px;
+//     height: 20px;
+//     padding: 0;
+//     -webkit-transform: translate(0, -50%); /* 垂直居中 */
+//     -ms-transform: translate(0, -50%);
+//     transform: translate(0, -50%);
+//     cursor: pointer;
+//     color: transparent;
+//     border: none;
+//     outline: none;
+//     background: transparent;
+// }
+// .slick-prev:hover,
+// .slick-prev:focus,
+// .slick-next:hover,
+// .slick-next:focus {
+//     color: transparent; /* 鼠標懸停或聚焦時箭頭顏色 */
+//     outline: none;
+//     background: transparent;
+// }
+// .slick-prev:hover:before,
+// .slick-prev:focus:before,
+// .slick-next:hover:before,
+// .slick-next:focus:before {
+//     opacity: 1; /* 鼠標懸停或聚焦時箭頭圖示透明度 */
+// }
+// .slick-prev.slick-disabled:before,
+// .slick-next.slick-disabled:before {
+//     opacity: .25; /* 禁用箭頭的透明度 */
+// }
+// .slick-prev:before,
+// .slick-next:before {
+//     font-family: 'slick'; /* 使用定義的字體 */
+//     font-size: 20px; /* 字體大小 */
+//     line-height: 1;
+//     opacity: .75; /* 箭頭圖示的透明度 */
+//     color: white; /* 箭頭顏色 */
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+// }
+// .slick-prev {
+//     left: -25px; /* 左箭頭位置 */
+// }
+// [dir='rtl'] .slick-prev {
+//     right: -25px; /* RTL 方向時左箭頭位置 */
+//     left: auto;
+// }
+// .slick-prev:before {
+//     content: '←'; /* 左箭頭內容 */
+// }
+// [dir='rtl'] .slick-prev:before {
+//     content: '→'; /* RTL 方向時左箭頭內容 */
+// }
+// .slick-next {
+//     right: -25px; /* 右箭頭位置 */
+// }
+// [dir='rtl'] .slick-next {
+//     right: auto;
+//     left: -25px; /* RTL 方向時右箭頭位置 */
+// }
+// .slick-next:before {
+//     content: '→'; /* 右箭頭內容 */
+// }
+// [dir='rtl'] .slick-next:before {
+//     content: '←'; /* RTL 方向時右箭頭內容 */
+// }
+
+//圓點指示器
+// .slick-dotted.slick-slider {
+//     margin-bottom: 30px;
+// }
+
+//圓點指示器位置
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+//圓點間距
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+//圓點按鈕
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+//聚焦效果取消
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+  outline: none;
+}
+
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+  opacity: 1;
+}
+
+//樣式
+.slick-dots li button:before {
+  font-family: "slick"; //使用定義的字體
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: "•";
+  text-align: center;
+  opacity: 0.25;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+//當前索引時
+.slick-dots li.slick-active button:before {
+  opacity: 0.75;
+  color: black;
+}
+
+// 自訂

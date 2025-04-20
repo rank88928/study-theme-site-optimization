@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>餐廳</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/all.css" />
+
+    <script type="module" src="js/globalSettings_init.js"></script>
+  </head>
+
+  <body class="page-space">
+    <header></header>
+
+    <div class="main">
+      <div class="options-container">
+        <h2>個人中心</h2>
+        <!-- <button class="type-btn">我的購物車</button> -->
+        <button class="type-btn">我的訂單</button>
+        <button class="type-btn logout-btn">登出</button>
+      </div>
+
+      <div class="data-container">
+        <div class="cart-container">
+          <div class="table-title">個人-暫存購物車內容</div>
+          <table>
+            <thead>
+              <tr>
+                <th>商品圖片</th>
+                <th>商品名稱</th>
+                <th>單價</th>
+                <th>數量</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="empty-cart">
+                <td colspan="6">
+                  <div class="empty-text">
+                    <p>購物車是空的！快去逛逛吧！</p>
+                    <a href="./menu.html" class="go-menu">回去挑選</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="total_amount-box">
+            <button class="order-btn">去結算</button>
+          </div>
+        </div>
+
+        <div class="order-container">
+          <div class="table-title">個人-訂單內容</div>
+          <table>
+            <thead>
+              <tr>
+                <th>訂單序號</th>
+                <th>建立時間</th>
+                <th>訂單狀態</th>
+                <th>訂單金額</th>
+              </tr>
+            </thead>
+            <tbody class="order-tbody">
+              <tr class="empty-cart">
+                <td colspan="4">
+                  <div class="skeleton-screen">
+                    <div class="skeleton-loader"></div>
+                    <p>資料載入中</p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <footer></footer>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script type="module" src="js/space/index.js"></script>
+</html>

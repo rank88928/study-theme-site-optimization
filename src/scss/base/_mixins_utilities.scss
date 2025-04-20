@@ -1,0 +1,30 @@
+// 文本處理
+
+// 文本超出隱藏 省略號替代
+@mixin txt_multi_line_ellipsis($lines: 3, $line-height: 1.5rem) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines;
+  font-size: $line-height;
+  line-height: $line-height;
+
+  $max-height: $lines * $line-height; // 計算數值
+  max-height: #{$max-height}; // 插入已計算的數值
+}
+//使用時要傳單位
+
+// 單行超出隱藏 省略號替代
+@mixin txt_line_ellipsis {
+  white-space: nowrap; //文本不換行
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin position_center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

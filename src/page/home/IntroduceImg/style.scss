@@ -1,0 +1,91 @@
+@use "@/scss/base/_rwd_mixin";
+@use "@/scss/module/_carousel";
+
+.introduce-box {
+  .img-box {
+    width: 60%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+
+    > img {
+      object-fit: cover;
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin: auto;
+        width: 50%;
+      }
+
+      &:nth-child(1) {
+        height: 70%;
+        padding-right: 10px;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        height: 48%;
+      }
+    }
+  }
+}
+
+// 反轉圖文
+.introduce-box:nth-child(2) {
+  flex-direction: row-reverse;
+
+  > img:nth-child(1) {
+    order: 1;
+    padding-right: 0px;
+    padding-left: 10px;
+  }
+}
+
+// 介紹圖輪播
+.img-box-carousel {
+  display: none;
+  max-width: 100%;
+  max-height: 400px;
+
+  .carousel-box {
+    .item {
+      width: 100%;
+      aspect-ratio: 12 / 7;
+
+      img {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@include rwd_mixin.rwd_992_below {
+  .introduce-content .introduce-box .img-box {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+
+    img {
+      width: 33%;
+      padding: 5px;
+      aspect-ratio: 12 / 9;
+    }
+  }
+}
+
+@include rwd_mixin.rwd_768_below {
+  .img-box-carousel {
+    display: block;
+  }
+  .introduce-box .img-box {
+    display: none;
+  }
+}

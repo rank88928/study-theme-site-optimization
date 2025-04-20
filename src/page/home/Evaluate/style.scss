@@ -1,0 +1,101 @@
+// 回饋名片
+.feedback-content {
+  max-width: 1200px;
+  margin: 40px auto;
+  overflow: hidden;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.feedback-list {
+  height: 280px;
+  display: flex;
+  border-top: 2px double rgba(0, 0, 0, 0.405);
+  border-bottom: 2px double rgba(0, 0, 0, 0.405);
+  border-width: 5px;
+}
+
+.m_feedback_card {
+  flex-shrink: 0;
+  width: 330px !important;
+  height: 190px !important;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px 20px;
+  padding: 15px;
+  border: 2px double rgba(0, 0, 0, 0.405);
+  border-width: 10px;
+  position: relative;
+  clip-path: path("M 0 200 L 0 40 L 40 0 L 340 0 L 340 160 L 300 200 L 0 200 ");
+  background-color: #fff;
+
+  // 名片裝飾
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    border-top: 5px solid rgba(0, 0, 0, 0.405);
+    z-index: 10;
+  }
+
+  &::after {
+    width: 80px;
+    height: 0px;
+    transform: rotate(135deg);
+    top: 5%;
+    left: -10%;
+  }
+
+  &::before {
+    width: 50px;
+    height: 0px;
+    transform: rotate(315deg);
+    top: 98%;
+    left: 92%;
+  }
+
+  //格式
+  .details {
+    width: 100%;
+    height: 80%;
+    display: flex;
+
+    .user-img {
+      width: 40%;
+
+      img {
+        max-width: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    .info {
+      margin: 10px 0 0 10px;
+      width: 60%;
+
+      .user-name {
+        font-size: 36px;
+        margin: 0 0 10px 10px;
+      }
+
+      .user-feedback {
+        font-size: 20px;
+        font-style: italic;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+
+  .star {
+    margin-top: 5px;
+    font-size: 24px;
+    color: #ffea00;
+
+    position: relative;
+  }
+}

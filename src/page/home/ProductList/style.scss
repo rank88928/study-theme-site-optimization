@@ -1,0 +1,159 @@
+@use "@/scss/base/rwd_mixin";
+// 商品列表
+.product-content {
+  max-width: 1200px;
+  margin: auto;
+  background-color: #f7f3eeb0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-blend-mode: overlay;
+  transition: background-color 1s ease, background-image 1s ease;
+
+  ul {
+    justify-content: space-between;
+    padding: 40px 20px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    z-index: 5;
+    justify-content: center;
+  }
+}
+
+@include rwd_mixin.rwd_992_below {
+  .product-content ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@include rwd_mixin.rwd_768_below {
+  .product-content ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@include rwd_mixin.rwd_576_below {
+  .product-content ul {
+    grid-template-columns: 80%;
+  }
+}
+
+// 卡片
+.product-card {
+  // width: 290px;
+  height: 360px;
+  background-color: #ffffff;
+  color: #696969;
+  padding: 20px;
+  grid-gap: 20px;
+
+  .img {
+    height: 50%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+
+  .txt {
+    height: 40%;
+
+    h3 {
+      font-size: 24px;
+      margin: 10px 0px;
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 0 20px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 20px 0 20px;
+      line-height: 40px;
+
+      span {
+        font-size: 24px;
+        color: #fe8383;
+        font-style: italic;
+      }
+
+      a {
+        padding: 0;
+        width: 60px;
+        // height: 40px;
+      }
+    }
+  }
+}
+
+// 效果
+.product-card .img {
+  position: relative;
+  overflow: hidden;
+
+  // 卡片蒙層
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    opacity: 0.5;
+  }
+
+  //卡片圖片縮放
+  &:hover img {
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+  }
+
+  //標記愛心
+  span {
+    color: #fff;
+    display: block;
+    position: absolute;
+    top: 0%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
+    line-height: 40px;
+    text-align: center;
+    opacity: 0;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    z-index: 2;
+
+    &:hover {
+      color: #fe8383;
+      border: 2px solid #fe8383;
+    }
+  }
+
+  &:hover span {
+    top: 15%;
+    opacity: 1;
+  }
+}

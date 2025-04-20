@@ -1,0 +1,96 @@
+// 按鈕 圖標
+
+//首頁 指向後有黑底動畫
+.but-link-1 {
+  display: block;
+  width: 100%;
+  height: 70px;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 70px;
+  color: #000;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  margin: 100px 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    transition: transform ease 0.3s;
+    transform: translateX(-100%);
+    z-index: -1;
+    border-right: 60px solid transparent;
+    border-bottom: 70px solid #000;
+  }
+
+  &:hover {
+    color: #fff;
+
+    &::before {
+      background-color: #000;
+      transform: translateX(0%);
+    }
+  }
+}
+
+//門市 地圖按鈕
+.access-map {
+  width: 70%;
+  height: 40px;
+  position: relative;
+  background-color: #00000000;
+  border: 1px solid #bc9d51;
+  z-index: 1;
+  color: #bc9d51;
+}
+
+.access-map:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #bc9d51;
+  background-image: linear-gradient(315deg, #bc9d51 0%, #bc9d51 74%);
+  box-shadow: -7px -7px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+
+.access-map:hover {
+  color: #fff;
+}
+
+.access-map:hover:after {
+  top: 0;
+  height: 100%;
+}
+
+.access-map:active {
+  top: 2px;
+}
+
+// 首頁 商品列購物車
+.shopping-i-btn-1 {
+  background-color: #ff9556;
+  border: 1px solid #ff9556;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  &:hover {
+    background-color: #ff6000;
+    border: 1px solid #ff6000;
+    color: #2600ff;
+  }
+}
+
+//圖標
+.icon-right {
+  padding-left: 10%;
+}

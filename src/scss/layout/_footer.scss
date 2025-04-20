@@ -1,0 +1,100 @@
+@use "../base/globals" as g;
+@use "../base/rwd_mixin";
+
+.footer-container {
+  color: #000000;
+  background-color: g.$main-color-1;
+}
+
+.footer-siteinfo {
+  display: flex;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+
+.siteinfo {
+  width: 30%;
+
+  p {
+    text-align: center;
+    line-height: 25px;
+  }
+}
+
+.friend-link {
+  display: flex;
+  font-size: 36px;
+  width: 40%;
+  justify-content: center;
+
+  i {
+    margin: 10px;
+    color: #000000;
+  }
+
+  .yt:hover {
+    color: #ff0000;
+  }
+
+  .tw:hover,
+  .fb:hover {
+    color: #0088ff;
+  }
+
+  .line:hover {
+    color: #4cc764;
+  }
+
+  .ig {
+    position: relative;
+    z-index: 5;
+
+    &:hover {
+      color: #ffffff;
+
+      &::after {
+        content: "";
+        display: block;
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        border-radius: 30%;
+        height: 34px;
+        width: 35px;
+        position: absolute;
+        top: 1px;
+        left: -1px;
+        z-index: -3;
+      }
+    }
+  }
+}
+
+.qr-code {
+  width: 30%;
+
+  img {
+    width: 25%;
+  }
+}
+
+@include rwd_mixin.rwd_768_below {
+  .footer-siteinfo {
+    flex-wrap: wrap;
+
+    .siteinfo,
+    .friend-link,
+    .qr-code {
+      width: 100%;
+      margin: 15px 0;
+    }
+
+    .qr-code img {
+      width: 180px;
+      display: block;
+      margin: 20px auto;
+    }
+  }
+}
+
+.copyright {
+  text-align: center;
+}
