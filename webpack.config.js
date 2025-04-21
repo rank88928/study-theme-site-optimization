@@ -6,6 +6,8 @@ module.exports = {
   entry: {
     home: "./src/page/home/index.js",
     menu: "./src/page/menu/index.js",
+    aboutus: "./src/page/aboutus/index.js",
+    store: "./src/page/store/index.js",
   },
   output: {
     filename: "[name].js",
@@ -75,6 +77,16 @@ module.exports = {
       filename: "menu.html",
       template: "./src/page/menu/index.ejs",
       chunks: ["menu"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "aboutus.html",
+      template: "./src/page/aboutus/index.ejs",
+      chunks: ["aboutus"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "store.html",
+      template: "./src/page/store/index.ejs",
+      chunks: ["store"],
     }),
 
     new webpack.ProvidePlugin({
