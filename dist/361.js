@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstudy_theme_site_optimization=self.webpackChunkstudy_theme_site_optimization||[]).push([[361],{1361:(e,i,t)=>{t.d(i,{HF:()=>o});var n=t(6040),s=t(574),r=t(7943);function o(e){var i=(0,n.F)("shopping_records"),t=i.findIndex((function(i){return i.id===e}));if(-1!=t)return i.splice(t,1),(0,n.s)("shopping_records",i),(0,s.P)(),{name:(0,r.vA)(e)}}}}]);
