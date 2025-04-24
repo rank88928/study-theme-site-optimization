@@ -1,5 +1,4 @@
-import "@/scss/module/_quantity_selector_box.scss";
-import { card_config } from "@/store/product.js";
+import { card_config, data_init } from "@/store/product.js";
 let card_content = document.querySelector(".card-container");
 
 function card_html(item) {
@@ -36,5 +35,12 @@ function ui_update() {
   });
   card_content.innerHTML = buffer_html;
 }
+
+(async function init() {
+  await data_init();
+  card_config.update_display_data();
+
+  ui_update();
+})();
 
 export { ui_update };

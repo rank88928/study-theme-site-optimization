@@ -1,7 +1,7 @@
-import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "../api/firebase_config.js";
-import { user_api } from "../api/firebase_user_api.js";
-import { message } from "../module/cart_message.js";
-import { login_success } from "../module/header.js";
+import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "@/shared/api/firebase_config.js";
+import { user_api } from "@/shared/api/firebase_user_api.js";
+import { message } from "@/components/Message/index.js";
+import { login_success } from "@/shared/header.js";
 //用戶資料
 let user_data = {
   uid: "",

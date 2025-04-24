@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -8,6 +10,8 @@ module.exports = {
     menu: "./src/page/menu/index.js",
     aboutus: "./src/page/aboutus/index.js",
     store: "./src/page/store/index.js",
+    cart: "./src/page/cart/index.js",
+    space: "./src/page/space/index.js",
   },
   output: {
     filename: "[name].js",
@@ -21,6 +25,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
+          options: {
+            sourceMaps: false,
+          },
         },
       },
       {
@@ -30,8 +37,8 @@ module.exports = {
       {
         test: /.scss$/,
         use: [
-          "style-loader", //把 CSS 插進 < style>
-          "css-loader", //讓 JS 可以處理 CSS
+          MiniCssExtractPlugin.loader,
+          "css-loader",
           {
             loader: "sass-loader",
             options: {
@@ -47,10 +54,10 @@ module.exports = {
         use: "html-loader",
       },
       {
-        test: /\.(jpg|jpeg|png|gif|svg)$/i, // 匹配圖片類型
+        test: /\.(jpg|jpeg|png|gif|svg)$/i,
         type: "asset/resource",
         generator: {
-          filename: "images/[name][hash][ext][query]", // 輸出的圖片路徑和命名規則
+          filename: "images/[name][hash][ext][query]",
         },
       },
       {
@@ -59,8 +66,8 @@ module.exports = {
           {
             loader: "ejs-loader",
             options: {
-              esModule: false, // 禁用 esModule
-              variable: "data", // 設置模板變數
+              esModule: false,
+              variable: "data",
             },
           },
         ],
@@ -68,6 +75,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      _: "lodash",
+    }),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./src/page/home/index.ejs",
@@ -88,10 +99,20 @@ module.exports = {
       template: "./src/page/store/index.ejs",
       chunks: ["store"],
     }),
+    new HtmlWebpackPlugin({
+      filename: "cart.html",
+      template: "./src/page/cart/index.ejs",
+      chunks: ["cart"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "space.html",
+      template: "./src/page/space/index.ejs",
+      chunks: ["space"],
+    }),
 
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      _: "lodash",
+    new MiniCssExtractPlugin({
+      filename: "css/[name].[contenthash].css",
+      chunkFilename: "css/common.[contenthash].css",
     }),
   ],
 
@@ -101,11 +122,35 @@ module.exports = {
     },
   },
   devServer: {
-    static: path.resolve(__dirname, "dist"), // 靜態文件路徑
+    static: path.resolve(__dirname, "dist"),
     open: true,
     hot: true,
     port: 8080,
   },
-  mode: "development", // 開發模式
-  devtool: "eval-source-map", //映射回原始狀態 除錯
+  // mode: "development",
+  // devtool: "eval-source-map",
+  mode: "production",
+  devtool: false,
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      minSize: 0,
+      cacheGroups: {
+        default: {
+          minChunks: 2,
+        },
+      },
+    },
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        extractComments: false,
+      }),
+    ],
+  },
 };

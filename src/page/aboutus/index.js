@@ -1,16 +1,12 @@
 import "@/shared/common_style.js";
-import "@/shared/common_img.js";
 import "./style.scss";
-
+//全域
+import "@/components/index.js";
+//單頁
 import "./img_import.js";
 import "@/page/aboutus/BannerCarousel/index.js";
 
-import "@/components/NavShoppingBox/index.js";
-import "@/components/Message/index.js";
-
 import gsap from "gsap";
-// import "../shopping/cart_box.js";
-// import "../module/index.js";
 
 let anim_enable_size = 768;
 

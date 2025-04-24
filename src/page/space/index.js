@@ -1,6 +1,11 @@
-import { get_all_order_data } from "../api/firebase_order_api.js";
-import { verify_id, logout } from "../auth/user.js";
-import "../shopping/cart_box.js";
+import "@/shared/common_style.js";
+import "./style.scss";
+//全域
+import "@/components/index.js";
+//單頁
+import { get_all_order_data } from "@/shared/api/firebase_order_api.js";
+import { verify_id, logout } from "@/store/user.js";
+
 let uid;
 
 function page_verify() {

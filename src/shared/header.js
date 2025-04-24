@@ -1,5 +1,4 @@
-import { login_user, register_user } from "../auth/user.js";
-import { verify_id } from "../auth/user.js";
+import { login_user, register_user, verify_id } from "@/store/user.js";
 
 let login_status_tooltip = document.querySelector(".login-status-tooltip");
 
