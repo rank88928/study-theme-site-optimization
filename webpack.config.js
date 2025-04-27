@@ -54,10 +54,10 @@ module.exports = {
         use: "html-loader",
       },
       {
-        test: /\.(jpg|jpeg|png|gif|svg)$/i,
+        test: /\.(jpg|jpeg|png|gif|svg|webp)$/i,
         type: "asset/resource",
         generator: {
-          filename: "images/[name][hash][ext][query]",
+          filename: "images/[name][hash:5][ext][query]",
         },
       },
       {
@@ -109,7 +109,6 @@ module.exports = {
       template: "./src/page/space/index.ejs",
       chunks: ["space"],
     }),
-
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash].css",
       chunkFilename: "css/common.[contenthash].css",

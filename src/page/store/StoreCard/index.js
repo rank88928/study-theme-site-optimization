@@ -2,10 +2,10 @@ import "./style.scss";
 import "@/shared/gsap/loadgsap.js";
 import { gsap } from "gsap";
 
-import img_1 from "@/img/store/store-01.jpg";
-import img_2 from "@/img/store/store-02.jpg";
-import img_3 from "@/img/store/store-03.jpg";
-import img_4 from "@/img/store/store-04.jpg";
+import img_1 from "@/img/store/store-01.webp";
+import img_2 from "@/img/store/store-02.webp";
+import img_3 from "@/img/store/store-03.webp";
+import img_4 from "@/img/store/store-04.webp";
 
 let store_img_arr = [img_1, img_2, img_3, img_4];
 

@@ -1,5 +1,5 @@
 import "./style.scss";
-import img_bk from "@/img/bk-6.jpg";
+import img_bk from "@/img/bk-6.webp";
 
 let evaluate_data = [
   {

@@ -3,12 +3,16 @@
 .page-aboutus footer {
   display: none;
 }
-
-// #message {
-//   width: 60%;
-//   height: 150px;
-//   display: block;
-// }
+.scroll-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  margin-top: 80px;
+  background-size: 100% 100%;
+}
 
 .year-block,
 .concept-block {

@@ -1,6 +1,6 @@
-import mv01 from "@/img/home/mv01.jpg";
-import mv02 from "@/img/home/mv02.jpg";
-import mv03 from "@/img/home/mv03.jpg";
+import mv01 from "@/img/home/mv01.webp";
+import mv02 from "@/img/home/mv02.webp";
+import mv03 from "@/img/home/mv03.webp";
 import "./style.scss";
 import "@/assets/slick/slick.js";
 import "@/scss/module/_carousel.scss";

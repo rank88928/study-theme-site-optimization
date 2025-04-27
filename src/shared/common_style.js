@@ -12,5 +12,9 @@ import "@/scss/module/_quantity_selector_box.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 //
 import logo from "@/img/layout/logo.png";
+import qr from "@/img/layout/qr-code.png";
 let logo_img = document.querySelector("#logo-img");
 logo_img.src = logo;
+
+let qr_code = document.querySelector(".qr-code img");
+qr_code.src = qr;

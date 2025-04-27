@@ -1,5 +1,5 @@
 import "./style.scss";
-import bkimg from "@/img/store/bk.jpg";
+import bkimg from "@/img/store/bk.webp";
 import "@/shared/gsap/loadgsap.js";
 import { gsap } from "gsap";
 import { text_split } from "@/shared/gsap/animation_utils.js";

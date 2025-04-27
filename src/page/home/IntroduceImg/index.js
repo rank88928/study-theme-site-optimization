@@ -1,7 +1,7 @@
 import "./style.scss";
 import "@/assets/slick/slick.js";
 
-const import_images = require.context("@/img/product", false, /\.jpg$/);
+const import_images = require.context("@/img/product", false, /\.webp$/);
 const images_arr = import_images.keys().map((file) => import_images(file));
 
 let introduce_content = document.querySelector(".introduce-content");
